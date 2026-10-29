@@ -1,0 +1,8 @@
+TODO: display no chapters if none exist
+mangaid 4ece5274-501e-45f0-ab4d-243f60692960 doesnt display anything
+
+
+get next and prev chapters
+-pass on the volume and chapters mangaid/12313131231/chapter/124141595151-1255&1&2 ->&1&2=
+- when page loads get next and prev chapter from aggregate based on passed on values
+- set the next and prev chapter id as button info

@@ -1,0 +1,99 @@
+.paginateButton {
+    background: transparent;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 20px;
+    width: 25%;
+    max-width: 36px;
+    text-align: center;
+    width: 10%;
+    cursor: pointer;
+  }
+  #myBtn {
+    width: 20px;
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #0000ff80;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+  }
+  #paginateLeft:hover {
+    transform: translateX(-5px) scale(120%);
+  }
+  #paginateRight:hover {
+    transform: translateX(5px) scale(120%);
+  }
+  #paginateButtonContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+.chapterPanel {
+    margin-bottom: 1.5px;
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+#myBtn {
+    width: calc(1.8rem + 1.5vw);
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #0000ff80;
+    color: white;
+    cursor: pointer;
+    padding: 0.95%;
+    border-radius: 4px;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+  }

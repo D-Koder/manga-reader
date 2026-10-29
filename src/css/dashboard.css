@@ -1,0 +1,153 @@
+.react-multi-carousel-list  {
+    height: 300px;
+}
+.slidepanel{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+.slideimage{
+    width: 96%;
+    height: 100%;
+    
+    max-width: 100%;
+}
+.slideName{
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    border-top: 1px solid white;
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    width: 96%;
+    height: 23%;
+    left: 50%;
+    border-radius: 27px 27px 0 0;
+    background: rgb(78 78 78 / 65%);
+    transform: translate(-50%, 0%);
+}
+#slideButton{
+    text-decoration: none;
+    font-weight: bolder;
+    box-shadow: 0px 0px 1px 1px #bdbdbd;
+    display: flex;
+    width: 51%;
+    justify-content: center;
+    padding: 3px;
+    margin: auto;
+    background: #fffefe;
+    border-radius: 3px;
+}
+
+.slideName:hover{
+    height: 75%;
+    transition: all ease-in-out 0.2s;
+    -webkit-mask-image: linear-gradient(to bottom, black 87%, transparent 100%);
+}
+.react-multi-carousel-track {
+    height: 100%;
+}
+.carousel{
+    width:100%;
+}
+.slideA{
+    width: 100%;
+}
+.genre{
+    padding: 0 10px;
+    min-width: 40px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 6px;
+    background: #eee;
+    color: #111;
+    font-weight: 400;
+    font-size: 13px;
+    display: inline-block;
+}
+.cat-heading {
+    font-size: 24px!important;
+    line-height: 40px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    color: #5f25a6;
+}
+
+.genreContainer {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .genreContainer input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #b9b9b9;
+    padding: 2px;
+    border-radius: 9px;
+    color: white;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .genreContainer:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .genreContainer input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  #manga-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: sans-serif;
+  }
+  
+  #manga-controls .genre-selections {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #manga-controls .genre-selections label {
+    margin-right: 1rem;
+  }
+#menuToggle{
+     display: none; 
+}
+/* Show toggle when in tablet */
+  @media (max-width: 767px) {
+    
+    #menuToggle {
+      display:block;
+    }
+    #manga-controls{
+        display: none;
+    }
+    #control-left{
+        background:rgb(201, 201, 201);
+        
+    }
+    .slideName{
+        height: 75%;
+    }
+  }
+  @media (min-width: 768px) {
+    #manga-controls{
+        display: flex!important;
+    }
+  }

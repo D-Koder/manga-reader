@@ -1,0 +1,260 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header {
+    background: #628eff;
+}
+html{
+    width: 100%;
+}
+.header-content {
+    font-weight: 700;
+    font-size: 5vw;
+    color: white;
+}
+.star-icon {
+    width: 25px;
+}
+.body-title {
+    font-weight: 700;
+    font-size: 3vw;
+    color:
+        #000000;
+}
+.body-sub-title {
+    color:  #83A5FF;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+
+
+.rating {
+    color: #0066FF;
+    font-size: calc(1rem + 2.5vw);
+    font-weight: 700;
+}
+.follower {
+    font-weight: 400;
+    font-size: 29px;
+    color: #0066FF;
+}
+.action-button-div {
+    border: 1px solid #000000;
+    border-radius: 7px
+}
+
+.action-button {
+    background: #5AB0FF !important;
+    border-radius: 4px;
+    font-size: 20px !important;
+    margin: 0px 5px;
+    font-weight: 600 !important;
+    color: white !important;
+}
+#genreButtonContainer{
+    width: 100%;
+    padding: 4px;
+    height: 100%;
+    white-space: nowrap;
+}
+#genreButtonContainer:hover{
+    overflow-x: auto
+}
+.genres {
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+}
+.body-main-text {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 29.05px;
+    color: #000000;
+}
+.body-main-text {
+    border: 0.5px solid #f7f7f7;
+border-radius: 1px 1px 0px 0px;
+height: 274.03px
+}
+.body-main-footer{
+    background: #000000;
+border: 0.5px solid #000000;
+border-radius: 1px 1px 0px 0px;
+position: absolute;
+bottom: 0px;
+right: 0;
+width: 100%;
+
+}
+#more {display: none;}
+.footer-button{
+    background: #0029FF;
+border-radius: 1px;
+width: 191.51px;
+height: 40.81px;
+margin: 0 10px;
+font-weight: 700;
+font-size: 20px;
+color: white;
+border: none !important;
+}
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 24px;
+    transition: 0.4s;
+  }
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active:after {
+    content: "\2212";
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .bold-text{
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .semi-bold-text{
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 20px !important;
+  }
+
+  .body-content{
+    display: flex !important;
+    justify-content: space-around !important;
+}
+  /* media query */
+  @media only screen and (max-width: 600px) {
+    .profile , .toggle , .star-icon{
+        width: 30px;
+    }
+    .bold-text, .semi-bold-text{
+        font-size: 12px !important;
+        font-weight: 700;
+    }
+    .accordion{
+        font-size: 12px !important;
+        font-weight: 400;
+    }
+    .footer-button{
+        font-size: 9px !important;
+        width: 80px;
+        height: 30px;
+    }
+    .body-main-text{
+        font-size: 11px;
+        font-weight: 400;
+        height: auto;
+    }
+    .follower{
+        font-size: 10px;
+    }
+        .rate:not(:checked)>label{
+           font-size: 15px;
+           margin-top: 10px;
+
+        }
+    
+    .body-sub-title{
+        font-size: 10px !important;
+        font-weight: 400;
+        
+    }
+    .body-title{
+        font-size: 13px;
+        font-weight: 700;
+    };
+    .follower{
+        font-size: 10px !important;
+    }
+    .panel > p{
+        font-size: 12px;
+    }
+    .genres{
+        font-size: 10px !important;
+    }
+    .action-button{
+        width: auto !important;
+        height: auto;
+        font-size: 10px !important;
+        font-weight: 300 !important;
+        text-align: center;
+        margin: 0px 5px;
+        padding: 3px !important;
+        overflow: hidden;
+    }
+    .action-button:hover{
+        overflow-y: scroll;
+    }
+    .desktopDisplay {
+        display: none !important;
+    }
+    #desktopDisplay {
+        display: none !important;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    .action-button{
+        width: 82px !important;
+        height: auto;
+        padding: 5px !important;
+        margin: 0px 5px;
+    }
+  }
+  @media (min-width: 992px) {
+    .mobileDisplay {
+        display: none !important;
+      }
+      .desktopDisplay{
+          display: block !important;
+      }
+  }
+  
+  @media (max-width: 992px) {
+   
+    .mobileDisplay {
+        display: block !important;
+      }
+      .desktopDisplay{
+          display: none !important;
+      }
+  }
+  

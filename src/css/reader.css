@@ -1,0 +1,61 @@
+/* Chapter reader. Shared bits (buttons, chips, skeletons, back link) live in theme.css, home.css and manga.css. */
+
+.reader-head {
+  margin-bottom: 18px;
+}
+
+.reader-head h1 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  margin: 4px 0;
+}
+
+.reader-head p {
+  margin: 0;
+}
+
+.reader-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.reader-hint {
+  font-size: 0.85rem;
+}
+
+.reader-pages {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reader-pages img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 6px;
+  background: var(--surface-2);
+  min-height: 200px;
+}
+
+.page-skeleton {
+  height: 70vh;
+  border-radius: 6px;
+}
+
+.reader-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 860px;
+  margin: 20px auto;
+}
+
+.reader-foot {
+  text-align: center;
+  margin-top: 8px;
+}

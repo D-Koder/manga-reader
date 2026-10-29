@@ -1,0 +1,287 @@
+/* Design tokens, light and dark themes, app shell and navbar. */
+
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --surface-2: #eef0f6;
+  --text: #1c2030;
+  --muted: #667085;
+  --border: #e3e6ef;
+  --accent: #2f6fdb;
+  --accent-text: #ffffff;
+  --brand: #81abff;
+  --brand-text: #ffffff;
+  --danger: #d6455b;
+  --shadow: 0 6px 20px rgba(20, 24, 40, 0.08);
+  --radius: 12px;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1117;
+  --surface: #171a23;
+  --surface-2: #1e2230;
+  --text: #e6e8ee;
+  --muted: #9aa3b2;
+  --border: #272c3a;
+  --accent: #81abff;
+  --accent-text: #0f1117;
+  --brand: #1b2a4e;
+  --brand-text: #e6e8ee;
+  --danger: #ff7b8e;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* Follow the OS setting until the viewer picks a theme in the navbar. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1117;
+    --surface: #171a23;
+    --surface-2: #1e2230;
+    --text: #e6e8ee;
+    --muted: #9aa3b2;
+    --border: #272c3a;
+    --accent: #81abff;
+    --accent-text: #0f1117;
+    --brand: #1b2a4e;
+    --brand-text: #e6e8ee;
+    --danger: #ff7b8e;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+
+/* ":root" raises specificity so these beat Bootstrap's body/a rules, which load later. */
+:root body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+:root a {
+  color: var(--accent);
+}
+
+:root h1 {
+  text-align: left;
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* App shell */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 56px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--brand);
+  color: var(--brand-text);
+  box-shadow: 0 2px 10px rgba(20, 40, 90, 0.15);
+}
+
+.topbar .search-input {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: transparent;
+  color: var(--brand-text);
+}
+
+.topbar .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.topbar .ui-btn-ghost {
+  color: var(--brand-text);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.topbar .ui-btn-icon {
+  color: var(--brand-text);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.topbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--brand-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.topbar-search {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-notice {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 8px;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+
+/* Prefixed so Bootstrap's .btn-* rules (loaded later) can't override them. */
+.ui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s, background-color 0.15s;
+}
+
+.ui-btn:hover {
+  transform: translateY(-1px);
+}
+
+.ui-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.ui-btn {
+  text-decoration: none;
+}
+
+.ui-btn-primary,
+:root a.ui-btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.ui-btn-ghost,
+:root a.ui-btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.ui-btn-icon {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+@media (max-width: 640px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .topbar-search {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .page {
+    padding: 16px 12px 40px;
+  }
+}
+
+/* Age confirmation dialog. Prefixed because Bootstrap defines .modal and .modal-backdrop (hidden and black). */
+
+.age-gate-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.age-gate {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.age-gate h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.age-gate p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
