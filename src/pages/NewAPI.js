@@ -4,8 +4,8 @@ import baseUrl from "../data/connection";
 
 function NewApi() {
   const [images, setImages] = useState([]);
-  const [chapters, setChapters] = useState([]);
-  const [qualityImg, setQualityImg] = useState(true);
+  const [chapters] = useState([]);
+  const [qualityImg] = useState(true);
   const [prevChap, setPrevChap] = useState([]);
   const [nextChap, setNextChap] = useState([]);
   const [error, setError] = useState("Loading ...");
@@ -13,6 +13,8 @@ function NewApi() {
   // console.log(useParams());
   useEffect(() => {
     refreshImages();
+    // Runs once on mount, as before; refreshImages is not a stable dependency.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const refreshImages = () => {
     // const chapterID = '27cd0902-ad4c-490a-b752-ae032f0503c9';
@@ -63,7 +65,7 @@ function NewApi() {
         // console.log(data.data);
         // console.log(data.data.relationships);
         for (let index = 0; index < data.data.relationships.length; index++) {
-          if (data.data.relationships[index].type == "manga") {
+          if (data.data.relationships[index].type === "manga") {
             // console.log(data.data.relationships[index].id);
             fetch(baseUrl + "/chapter/" + chapterID)
               .then((response) => {
@@ -84,7 +86,7 @@ function NewApi() {
                   index < data.data.relationships.length;
                   index++
                 ) {
-                  if (data.data.relationships[index].type == "manga") {
+                  if (data.data.relationships[index].type === "manga") {
                     //Get chapters
                     // console.log(data.data.relationships[index].id);
                     fetch(
@@ -131,7 +133,7 @@ function NewApi() {
                           // console.log(
                           //   i + ": " + chapterID + "-" + chapters[i].id
                           // );
-                          if (chapterID == chapters[i].id) {
+                          if (chapterID === chapters[i].id) {
                             current = i;
                           }
                         }
@@ -142,7 +144,7 @@ function NewApi() {
                         //     "=================="
                         // );
                         for (let i = 0; i < chapters.length; i++) {
-                          if (i == current) {
+                          if (i === current) {
                             // console.log("previous was");
                             if (i + 1 < chapters.length) {
                               // console.log();
@@ -205,12 +207,12 @@ function NewApi() {
           {localStorage.getItem("MangaTitle")}
         </div>
         <div className="page-nav">
-          {prevChap != -2 ? (
+          {prevChap !== -2 ? (
             <a href={"/ViewManga/" + mangaId + "/ViewChapter/" + prevChap}>
               Previous Chapter
             </a>
           ) : null}
-          {nextChap != -2 ? (
+          {nextChap !== -2 ? (
             <a href={"/ViewManga/" + mangaId + "/ViewChapter/" + nextChap}>
               Next Chapter
             </a>
@@ -218,15 +220,20 @@ function NewApi() {
         </div>
         {images.length > 0 &&
           images.map((url, index) => (
-            <img style={{ borderTop: "1px solid" }} src={url} key={index}></img>
+            <img
+              style={{ borderTop: "1px solid" }}
+              src={url}
+              alt={`Page ${index + 1}`}
+              key={index}
+            ></img>
           ))}
         <div className="page-nav">
-          {prevChap != -2 ? (
+          {prevChap !== -2 ? (
             <a href={"/ViewManga/" + mangaId + "/ViewChapter/" + prevChap}>
               Previous Chapter
             </a>
           ) : null}
-          {nextChap != -2 ? (
+          {nextChap !== -2 ? (
             <a href={"/ViewManga/" + mangaId + "/ViewChapter/" + nextChap}>
               Next Chapter
             </a>
