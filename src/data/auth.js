@@ -35,6 +35,10 @@ export async function checkCredentials(username, password) {
   return bytesToHex(bits) === LOGIN_HASH;
 }
 
+export function currentUsername() {
+  return LOGIN_USERNAME;
+}
+
 // Stays signed in on this device until sign-out.
 export function isSignedIn() {
   try {

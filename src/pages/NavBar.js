@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { apiGet } from "../data/api";
 import { ratingParams } from "../data/content";
 import { useContentSettings } from "../context/content";
-import AdultToggle from "../components/AdultToggle";
+import AccountMenu from "../components/AccountMenu";
 
 function NavBar({ dark, onToggleTheme, onSignOut }) {
   const [query, setQuery] = useState("");
@@ -54,14 +54,7 @@ function NavBar({ dark, onToggleTheme, onSignOut }) {
         </form>
 
         <div className="topbar-actions">
-          <AdultToggle />
-          <button
-            type="button"
-            className="ui-btn ui-btn-ghost"
-            onClick={onSignOut}
-          >
-            Sign out
-          </button>
+          <AccountMenu onSignOut={onSignOut} />
           <button
             type="button"
             className="ui-btn ui-btn-ghost"

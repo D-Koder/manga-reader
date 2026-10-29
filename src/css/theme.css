@@ -244,6 +244,68 @@
   }
 }
 
+/* Account panel (lives in the navbar, so colors are set explicitly) */
+
+.account-wrap {
+  position: relative;
+}
+
+.topbar .account-button {
+  gap: 8px;
+  padding: 4px 12px 4px 4px;
+}
+
+.account-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #1c2030;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.account-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topbar .account-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 1100;
+  width: 260px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.topbar .account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+.topbar .account-menu .account-action {
+  width: 100%;
+  color: var(--text);
+  border-color: var(--border);
+}
+
 /* Sign-in screen */
 
 .login-page {
