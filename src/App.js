@@ -20,7 +20,7 @@ import {
   saveRatings,
 } from "./data/content";
 import { ContentContext } from "./context/content";
-import { isSignedIn, setSignedIn } from "./data/auth";
+import { setSignedIn } from "./data/auth";
 import LoginScreen from "./components/LoginScreen";
 
 function getInitialDark() {
@@ -36,7 +36,8 @@ function getInitialDark() {
 function App() {
   const [mangaId, setMangaId] = useState("");
   const [dark, setDark] = useState(getInitialDark);
-  const [signedIn, setSignedInState] = useState(isSignedIn);
+  // Login is disabled for now: the site opens as signed in.
+  const [signedIn, setSignedInState] = useState(true);
   const [storedRatings, setStoredRatings] = useState(readRatings);
   const [adultMode, setAdultModeState] = useState(readAdultMode);
   const [adultConfirmed, setAdultConfirmed] = useState(readAdultConfirmed);
