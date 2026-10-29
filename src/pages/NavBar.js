@@ -5,7 +5,7 @@ import { ratingParams } from "../data/content";
 import { useContentSettings } from "../context/content";
 import AdultToggle from "../components/AdultToggle";
 
-function NavBar({ dark, onToggleTheme }) {
+function NavBar({ dark, onToggleTheme, onSignOut }) {
   const [query, setQuery] = useState("");
   const [rolling, setRolling] = useState(false);
   const [notice, setNotice] = useState("");
@@ -55,6 +55,13 @@ function NavBar({ dark, onToggleTheme }) {
 
         <div className="topbar-actions">
           <AdultToggle />
+          <button
+            type="button"
+            className="ui-btn ui-btn-ghost"
+            onClick={onSignOut}
+          >
+            Sign out
+          </button>
           <button
             type="button"
             className="ui-btn ui-btn-ghost"

@@ -20,6 +20,8 @@ import {
   saveRatings,
 } from "./data/content";
 import { ContentContext } from "./context/content";
+import { isSignedIn, setSignedIn } from "./data/auth";
+import LoginScreen from "./components/LoginScreen";
 
 function getInitialDark() {
   try {
@@ -34,6 +36,7 @@ function getInitialDark() {
 function App() {
   const [mangaId, setMangaId] = useState("");
   const [dark, setDark] = useState(getInitialDark);
+  const [signedIn, setSignedInState] = useState(isSignedIn);
   const [storedRatings, setStoredRatings] = useState(readRatings);
   const [adultMode, setAdultModeState] = useState(readAdultMode);
   const [adultConfirmed, setAdultConfirmed] = useState(readAdultConfirmed);
@@ -76,6 +79,10 @@ function App() {
     getGenres().catch(() => {});
   }, []);
 
+  if (!signedIn) {
+    return <LoginScreen onSignedIn={() => setSignedInState(true)} />;
+  }
+
   return (
     <BrowserRouter>
       <ContentContext.Provider
@@ -87,7 +94,14 @@ function App() {
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
         crossOrigin="anonymous"
       />
-      <NavBar dark={dark} onToggleTheme={() => setDark((d) => !d)} />
+      <NavBar
+        dark={dark}
+        onToggleTheme={() => setDark((d) => !d)}
+        onSignOut={() => {
+          setSignedIn(false);
+          setSignedInState(false);
+        }}
+      />
       <main className="page">
         <Routes>
           <Route path="/" element={<DashBoard />} />
