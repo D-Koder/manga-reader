@@ -84,7 +84,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ContentContext.Provider
         value={{ ratings, storedRatings, setRatings, adultMode, setAdultMode, adultConfirmed, confirmAdult }}
       >
